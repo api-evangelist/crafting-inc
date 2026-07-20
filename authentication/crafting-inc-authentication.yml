@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.sandboxes.cloud/concepts/service-account.html
+docs: https://docs.sandboxes.cloud/security.html
+note: >-
+  Crafting does not publish a REST OpenAPI, so this profile is derived from the
+  documented access model rather than from securitySchemes. Access is via the
+  `cs` CLI / Web Console against an organization deployment (server_url).
+summary:
+  types: [token, sso, mutualTLS]
+  human_identity: SSO / identity federation (org users)
+  machine_identity: service accounts with LoginToken + SSH deploy keys
+schemes:
+  - name: UserLogin
+    type: interactive
+    scheme: cs login
+    description: >-
+      Interactive user authentication against the org deployment via the CLI
+      (`cs login`) after `cs config set server_url https://SYS-DOMAIN`.
+    sources: [https://docs.sandboxes.cloud/guides/developers/onboard-guide.html]
+  - name: IdentityFederation
+    type: sso
+    description: >-
+      Organizations connect their own IdP via identity federation for user
+      sign-in.
+    sources: [https://docs.sandboxes.cloud/guides/admin/setup-identity-federation.html]
+  - name: ServiceAccountLoginToken
+    type: token
+    in: token
+    description: >-
+      Machine identities (service accounts) authenticate with a LoginToken that
+      is minted after the service account is created; an optional expiry can be
+      set. Used as `cs login -t LOGIN-TOKEN` or the web URL
+      https://SYS-DOMAIN/auth/token/LOGIN-TOKEN.
+    sources: [https://docs.sandboxes.cloud/concepts/service-account.html]
+  - name: ServiceAccountSSHKey
+    type: ssh-keypair
+    description: >-
+      Service accounts also carry an SSH keypair usable as a VCS deploy key;
+      public key via `cs secret show --owner=SERVICE_ACCOUNT_EMAIL default-ssh-0`.
+    sources: [https://docs.sandboxes.cloud/concepts/service-account.html]
+  - name: WorkloadMTLS
+    type: mutualTLS
+    description: >-
+      Internal workload-to-workload communication uses mTLS with certificates
+      mutually verified by both parties; external traffic is HTTPS/TLS 1.2+.
+    sources: [https://docs.sandboxes.cloud/security.html]
+roles:
+  - Admin
+  - Member
