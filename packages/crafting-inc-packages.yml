@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/crafting-dev
+note: >-
+  Crafting publishes first-party developer tooling (a CLI, a Terraform provider,
+  and a GitHub Action) rather than language client SDK libraries. No published
+  npm/PyPI/Maven/NuGet/Go/RubyGems client library for a REST API was found — the
+  platform is consumed through the `cs` CLI and infrastructure integrations.
+packages:
+  - language: shell
+    kind: cli
+    registry: homebrew
+    name: crafting-dev/homebrew-sandbox
+    url: https://github.com/crafting-dev/homebrew-sandbox
+    install: brew tap crafting-dev/homebrew-sandbox
+    official: true
+  - language: hcl
+    kind: terraform-provider
+    registry: terraform-registry
+    name: crafting-dev/crafting
+    url: https://registry.terraform.io/providers/crafting-dev/crafting
+    source: https://github.com/crafting-dev/terraform-provider-crafting
+    official: true
+  - language: yaml
+    kind: github-action
+    registry: github-marketplace
+    name: crafting-dev/sandbox-launch-action
+    url: https://github.com/crafting-dev/sandbox-launch-action
+    official: true

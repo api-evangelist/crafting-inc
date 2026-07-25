@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.sandboxes.cloud/
+status_page: https://status.sandboxes.cloud
+status_page_alt: https://crafting.statuspage.io
+versioning:
+  scheme: rolling
+  note: >-
+    Crafting is delivered as a managed / self-hosted platform consumed through
+    the `cs` CLI and Web Console rather than a versioned public REST API; no
+    dated public API changelog or deprecation policy was found.
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+  note: Enterprise agreements; no public SLA page found.

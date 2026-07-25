@@ -1,0 +1,57 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.sandboxes.cloud/guides/developers/onboard-guide.html
+name: cs
+description: >-
+  The Crafting Sandbox command-line tool (`cs`). Connects a developer's local
+  IDE and shell to a remote Crafting sandbox workspace, manages daemons/processes
+  inside the sandbox, forwards ports, streams logs, and authenticates users and
+  service accounts against an organization's Crafting deployment.
+docs: https://docs.sandboxes.cloud/guides/developers/onboard-guide.html
+install:
+  - method: web-console
+    note: >-
+      Download from the org Web Console "Download" menu and follow the install
+      instructions. On macOS do not download the binary directly in the browser
+      (it gets quarantined) — use the console-provided installer.
+  - method: homebrew
+    tap: crafting-dev/homebrew-sandbox
+    source: https://github.com/crafting-dev/homebrew-sandbox
+config:
+  - command: cs config set server_url https://SYS-DOMAIN
+    description: Point the CLI at the organization's Crafting deployment.
+authentication:
+  - command: cs login
+    description: Interactive user login against the configured deployment.
+  - command: cs login -t LOGIN-TOKEN
+    description: >-
+      Service-account (machine identity) login using a LoginToken minted for the
+      service account. Optional expiry can be set on the token.
+  - url: https://SYS-DOMAIN/auth/token/LOGIN-TOKEN
+    description: Web URL form of service-account token login.
+command_groups:
+  - group: ide-connect
+    description: Connect a local editor/IDE to the sandbox workspace.
+    commands:
+      - { name: cs vscode, description: Connect local VS Code to the workspace. }
+      - { name: cs jetbrains, description: Connect a JetBrains IDE to the workspace. }
+      - { name: cs cursor, description: Connect Cursor to the workspace. }
+      - { name: cs zed, description: Connect Zed to the workspace. }
+      - { name: cs ssh, description: Open an SSH session into the workspace. }
+  - group: process
+    description: Manage background processes / daemons inside the sandbox.
+    commands:
+      - { name: cs ps, description: List background processes and their status. }
+      - { name: cs start <name>, description: Start a daemon. }
+      - { name: cs stop <name>, description: Stop a daemon. }
+      - { name: cs restart <name>, description: Restart a daemon. }
+      - { name: cs logs, description: Stream logs from the CLI. }
+  - group: network
+    description: Networking helpers.
+    commands:
+      - { name: cs port-forward, description: Forward a port from the sandbox to localhost. }
+  - group: secret
+    description: Read workspace secrets / keys.
+    commands:
+      - { name: cs secret show --user default-ssh-0, description: Display the workspace SSH public key. }
+      - { name: cs secret show --owner=SERVICE_ACCOUNT_EMAIL default-ssh-0, description: Show a service account's deploy SSH public key. }

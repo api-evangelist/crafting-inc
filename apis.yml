@@ -1,8 +1,30 @@
 aid: crafting-inc
 name: Crafting, Inc.
-description: Crafting, Inc. is a company surfaced as a portfolio company of 500-global and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Crafting, Inc. (crafting.dev) is a Silicon Valley AI DevOps company building
+  infrastructure for the agentic era. Its platform gives autonomous coding agents
+  and engineers controlled, production-like access to real infrastructure,
+  dependencies, credentials, tests, and validation inside secure, isolated
+  "sandboxes" so they can run, test, validate, iterate, and ship autonomously
+  with enterprise-grade guardrails across multiple clouds and regions. Crafting
+  is consumed through the `cs` command-line tool, a Web Console, a Terraform
+  provider, and a GitHub Action rather than a public REST API, and is used by
+  engineering teams at Brex, Faire, Webflow, Lime, Verkada, Instabase, and
+  Persona. Documentation is hosted at docs.sandboxes.cloud.
 url: https://raw.githubusercontent.com/api-evangelist/crafting-inc/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/68cb484593353a116fbd329a/69781817f8c5c0741ab17bfa_Avatar%20256.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,9 +33,17 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Developer Tools
+- AI Sandboxes
+- Coding Agents
+- Developer Environments
+- CI/CD
+- Kubernetes
+- Developer Productivity
+- Infrastructure
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +53,44 @@ maintainers:
 common:
 - type: Website
   url: https://crafting.dev
+- type: DeveloperPortal
+  url: https://docs.sandboxes.cloud/
+- type: Documentation
+  url: https://docs.sandboxes.cloud/
+- type: GettingStarted
+  url: https://docs.sandboxes.cloud/guides/developers/onboard-guide.html
+- type: Blog
+  url: https://crafting.dev/blog
+- type: GitHubOrganization
+  url: https://github.com/crafting-dev
+- type: LinkedIn
+  url: https://www.linkedin.com/company/crafting-dev/
+- type: Support
+  url: https://crafting.dev/contact
+- type: SignUp
+  url: https://crafting.dev/contact
+- type: TermsOfService
+  url: https://crafting.dev/service-agreement
+- type: PrivacyPolicy
+  url: https://crafting.dev/privacy-policy
+- type: Security
+  url: https://docs.sandboxes.cloud/security.html
+- type: StatusPage
+  url: https://status.sandboxes.cloud
+- type: CLI
+  url: cli/crafting-inc-cli.yml
+- type: Packages
+  url: packages/crafting-inc-packages.yml
+- type: Authentication
+  url: authentication/crafting-inc-authentication.yml
+- type: Lifecycle
+  url: lifecycle/crafting-inc-lifecycle.yml
+- type: DomainSecurity
+  url: security/crafting-inc-domain-security.yml
+- type: LLMsTxt
+  url: llms/crafting-inc-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
